@@ -12,20 +12,20 @@ export async function POST(req: Request) {
 
     const split = [
       {
-        amount: Number(body.percentPrincipal),
-        recipient_id: body.idPrincipal,
+        amount: Number(process.env.PERCENT_MAIN),
+        recipient_id: process.env.RECIPIENT_MAIN_ID,
         type: "percentage",
       },
 
       {
-        amount: Number(body.percentRecebedor),
-        recipient_id: body.idRecebedor,
+        amount: Number(process.env.PERCENT_YOU),
+        recipient_id: process.env.RECIPIENT_YOU_ID,
         type: "percentage",
       },
 
       {
-        amount: Number(body.percentSocio),
-        recipient_id: body.idSocio,
+        amount: Number(process.env.PERCENT_PARTNER),
+        recipient_id: process.env.RECIPIENT_PARTNER_ID,
         type: "percentage",
       },
     ];
