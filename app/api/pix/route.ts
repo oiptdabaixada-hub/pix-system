@@ -1,14 +1,18 @@
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-
   try {
-
     const body = await req.json();
-
     const valor = Number(body.valor);
 
-    const valorCentavos = Math.round(valor * 100);
+    if (!valor || valor <= 0) {
+      return NextResponse.json({
+        sucesso: false,
+        mensagem: "❌ Valor inválido",
+      });
+    }
+
+    const apiKey = process.env.PAGARME_SECRET_KEY;
 
     const split = [
       {
@@ -16,13 +20,11 @@ export async function POST(req: Request) {
         recipient_id: process.env.RECIPIENT_MAIN_ID,
         type: "percentage",
       },
-
       {
         amount: Number(process.env.PERCENT_YOU),
         recipient_id: process.env.RECIPIENT_YOU_ID,
         type: "percentage",
       },
-
       {
         amount: Number(process.env.PERCENT_PARTNER),
         recipient_id: process.env.RECIPIENT_PARTNER_ID,
@@ -30,73 +32,85 @@ export async function POST(req: Request) {
       },
     ];
 
-    const response = await fetch(
-      "https://api.pagar.me/core/v5/orders",
-      {
-        method: "POST",
+    if (!apiKey) {
+      return NextResponse.json({
+        sucesso: false,
+        mensagem: "❌ Chave API não configurada",
+      });
+    }
 
-        headers: {
-          "Content-Type": "application/json",
+    const totalPercent = split.reduce((total, item) => total + item.amount, 0);
 
-          Authorization:
-            "Basic " +
-            Buffer.from(
-              process.env.PAGARME_SECRET_KEY + ":"
-            ).toString("base64"),
+    if (totalPercent !== 100) {
+      return NextResponse.json({
+        sucesso: false,
+        mensagem: "❌ As porcentagens precisam somar 100%",
+      });
+    }
+
+    const valorCentavos = Math.round(valor * 100);
+
+    const auth = Buffer.from(`${apiKey}:`).toString("base64");
+
+    const response = await fetch("https://api.pagar.me/core/v5/orders", {
+      method: "POST",
+      headers: {
+        Authorization: `Basic ${auth}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        customer: {
+          name: "LIBERACAO",
+          email: "cliente@nexpay.com",
+          type: "individual",
+          document: "00000000000",
         },
-
-        body: JSON.stringify({
-
-          items: [
-            {
-              amount: valorCentavos,
-              description: "Pagamento PIX NexPay",
-              quantity: 1,
-              code: "NEXPAYPIX",
+        items: [
+          {
+            amount: valorCentavos,
+            description: "Liberacao",
+            quantity: 1,
+            code: "pix",
+          },
+        ],
+        payments: [
+          {
+            payment_method: "pix",
+            pix: {
+              expires_in: 3600,
             },
-          ],
-
-          payments: [
-            {
-              payment_method: "pix",
-
-              pix: {
-                expires_in: 3600,
-              },
-
-              split,
-            },
-          ],
-        }),
-      }
-    );
+            split,
+          },
+        ],
+      }),
+    });
 
     const data = await response.json();
-    console.log(data)
+
     if (!response.ok) {
+      console.log(data);
 
       return NextResponse.json({
         sucesso: false,
+        mensagem: "❌ Erro ao gerar PIX",
         erro: data,
       });
-
     }
 
-    const qrCode =
-      data?.charges?.[0]?.last_transaction?.qr_code;
+    const codigoPix = data?.charges?.[0]?.last_transaction?.qr_code;
 
     return NextResponse.json({
       sucesso: true,
-      pix: qrCode,
+      mensagem: "✅ PIX gerado com sucesso",
+      pix: codigoPix,
+      data,
     });
-
   } catch (error) {
+    console.log(error);
 
     return NextResponse.json({
       sucesso: false,
-      erro: "Erro interno",
+      mensagem: "❌ Erro interno ao gerar PIX",
     });
-
   }
-
 }
