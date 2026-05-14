@@ -45,13 +45,13 @@ export default function GerarPix() {
 
     }
 
-    if (!config) {
+    
 
-      setMensagem("❌ Configuração não encontrada");
+      
 
-      return;
+      
 
-    }
+    
 
     try {
 
