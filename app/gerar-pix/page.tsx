@@ -67,7 +67,7 @@ export default function GerarPix() {
 
       } else {
 
-        setMensagem(`❌ ${JSON.stringify(data.erro || data)}`);
+        setMensagem(`❌ ${JSON.stringify(data, null, 2)}`);
 
       }
 
