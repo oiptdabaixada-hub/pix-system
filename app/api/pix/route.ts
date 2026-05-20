@@ -14,24 +14,6 @@ export async function POST(req: Request) {
 
     const apiKey = process.env.PAGARME_SECRET_KEY;
 
-    const split = [
-      {
-        amount: Number(process.env.PERCENT_MAIN),
-        recipient_id: process.env.RECIPIENT_MAIN_ID,
-        type: "percentage",
-      },
-      {
-        amount: Number(process.env.PERCENT_YOU),
-        recipient_id: process.env.RECIPIENT_YOU_ID,
-        type: "percentage",
-      },
-      {
-        amount: Number(process.env.PERCENT_PARTNER),
-        recipient_id: process.env.RECIPIENT_PARTNER_ID,
-        type: "percentage",
-      },
-    ];
-
     if (!apiKey) {
       return NextResponse.json({
         sucesso: false,
@@ -39,17 +21,53 @@ export async function POST(req: Request) {
       });
     }
 
+    const split = [
+      {
+        amount: Number(process.env.PERCENT_MAIN || 0),
+        recipient_id: process.env.RECIPIENT_MAIN_ID,
+        type: "percentage",
+        options: {
+          liable: true,
+          charge_processing_fee: true,
+          charge_remainder_fee: true,
+        },
+      },
+      {
+        amount: Number(process.env.PERCENT_YOU || 0),
+        recipient_id: process.env.RECIPIENT_YOU_ID,
+        type: "percentage",
+        options: {
+          liable: false,
+          charge_processing_fee: false,
+          charge_remainder_fee: false,
+        },
+      },
+      {
+        amount: Number(process.env.PERCENT_PARTNER || 0),
+        recipient_id: process.env.RECIPIENT_PARTNER_ID,
+        type: "percentage",
+        options: {
+          liable: false,
+          charge_processing_fee: false,
+          charge_remainder_fee: false,
+        },
+      },
+    ].filter((item) => item.amount > 0 && item.recipient_id);
+
     const totalPercent = split.reduce((total, item) => total + item.amount, 0);
 
     if (totalPercent !== 100) {
       return NextResponse.json({
         sucesso: false,
         mensagem: "❌ As porcentagens precisam somar 100%",
+        erro: {
+          totalPercent,
+          split,
+        },
       });
     }
 
     const valorCentavos = Math.round(valor * 100);
-
     const auth = Buffer.from(`${apiKey}:`).toString("base64");
 
     const response = await fetch("https://api.pagar.me/core/v5/orders", {
@@ -60,15 +78,15 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         customer: {
-          name: "LIBERACAO",
+          name: "Cliente NexPay",
           email: "cliente@nexpay.com",
           type: "individual",
-          document: "00000000000",
+          document: "61356621392",
         },
         items: [
           {
             amount: valorCentavos,
-            description: "Liberacao",
+            description: "Pix NexPay",
             quantity: 1,
             code: "pix",
           },
@@ -88,7 +106,7 @@ export async function POST(req: Request) {
     const data = await response.json();
 
     if (!response.ok) {
-      console.log(data);
+      console.log(JSON.stringify(data, null, 2));
 
       return NextResponse.json({
         sucesso: false,
@@ -98,6 +116,14 @@ export async function POST(req: Request) {
     }
 
     const codigoPix = data?.charges?.[0]?.last_transaction?.qr_code;
+
+    if (!codigoPix) {
+      return NextResponse.json({
+        sucesso: false,
+        mensagem: "❌ PIX gerado, mas código não encontrado",
+        erro: data,
+      });
+    }
 
     return NextResponse.json({
       sucesso: true,
