@@ -15,22 +15,12 @@ export default function GerarPix() {
 
   const [pixGerado, setPixGerado] = useState("");
 
-  const [config, setConfig] = useState<any>(null);
-
   useEffect(() => {
 
     const auth = localStorage.getItem("auth");
 
     if (auth !== "cliente") {
       router.push("/login");
-    }
-
-    const configSalva = localStorage.getItem("nexpay_config");
-
-    if (configSalva) {
-
-      setConfig(JSON.parse(configSalva));
-
     }
 
   }, []);
@@ -44,14 +34,6 @@ export default function GerarPix() {
       return;
 
     }
-
-    
-
-      
-
-      
-
-    
 
     try {
 
@@ -68,23 +50,14 @@ export default function GerarPix() {
         },
 
         body: JSON.stringify({
-
           valor,
-
-          idPrincipal: config.idPrincipal,
-          percentPrincipal: config.percentPrincipal,
-
-          idRecebedor: config.idRecebedor,
-          percentRecebedor: config.percentRecebedor,
-
-          idSocio: config.idSocio,
-          percentSocio: config.percentSocio,
-
         }),
 
       });
 
       const data = await response.json();
+
+      console.log(data);
 
       if (data.sucesso) {
 
@@ -94,13 +67,13 @@ export default function GerarPix() {
 
       } else {
 
-        console.log(data);
-
-        setMensagem("❌ Erro ao gerar PIX");
+        setMensagem(`❌ ${data.erro || "Erro ao gerar PIX"}`);
 
       }
 
     } catch (error) {
+
+      console.log(error);
 
       setMensagem("❌ Erro interno");
 
@@ -129,6 +102,7 @@ export default function GerarPix() {
   }
 
   return (
+
     <main className="flex min-h-screen items-center justify-center bg-black p-6">
 
       <div className="w-full max-w-[550px] rounded-3xl border border-zinc-800 bg-zinc-900 p-8">
@@ -222,5 +196,7 @@ export default function GerarPix() {
       </div>
 
     </main>
+
   );
+
 }
