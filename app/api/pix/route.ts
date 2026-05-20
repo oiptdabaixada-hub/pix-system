@@ -81,7 +81,15 @@ export async function POST(req: Request) {
           name: "Cliente NexPay",
           email: "cliente@nexpay.com",
           type: "individual",
-          document: "61356621392",
+          document: "11502234726",
+
+          phones: {
+            mobile_phone: {
+              country_code: "55",
+              area_code: "21",
+              number: "968475591",
+            },
+          },
         },
         items: [
           {
