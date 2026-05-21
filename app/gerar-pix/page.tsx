@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function GerarPix() {
+
   const router = useRouter();
 
   const [valor, setValor] = useState("");
@@ -12,23 +13,31 @@ export default function GerarPix() {
   const [pixGerado, setPixGerado] = useState("");
   const [valorGerado, setValorGerado] = useState("");
 
+  const [toast, setToast] = useState(false);
+
   useEffect(() => {
+
     const auth = localStorage.getItem("auth");
 
     if (auth !== "cliente") {
       router.push("/login");
     }
+
   }, [router]);
 
   async function gerarPix() {
+
     if (!valor) {
       setMensagem("Digite um valor para gerar o PIX.");
       return;
     }
 
     try {
+
       setLoading(true);
+
       setMensagem("");
+
       setPixGerado("");
 
       const valorNumerico =
@@ -47,59 +56,108 @@ export default function GerarPix() {
       const data = await response.json();
 
       if (data.sucesso) {
+
         setPixGerado(data.pix);
+
         setValorGerado(valor);
+
         setMensagem("PIX gerado com sucesso!");
+
       } else {
+
         setMensagem("Não foi possível gerar o PIX.");
+
       }
+
     } catch (error) {
+
       setMensagem("Erro interno ao gerar PIX.");
+
     } finally {
+
       setLoading(false);
+
     }
+
   }
 
   function copiarPix() {
+
     navigator.clipboard.writeText(pixGerado);
-    setMensagem("Código PIX copiado!");
+
+    setToast(true);
+
+    setTimeout(() => {
+      setToast(false);
+    }, 2500);
+
   }
 
   function novaCobranca() {
+
     setValor("");
+
     setPixGerado("");
+
     setValorGerado("");
+
     setMensagem("");
+
   }
 
   function sair() {
+
     localStorage.removeItem("auth");
+
     router.push("/login");
+
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-black p-6 text-white">
-      <div className="w-full max-w-[580px] animate-[fadeIn_0.4s_ease-in-out] rounded-[35px] border border-zinc-800 bg-gradient-to-b from-zinc-900 to-black p-8 shadow-[0_0_80px_rgba(34,197,94,0.08)]">
+
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black p-6 text-white">
+
+      <div className="absolute h-[500px] w-[500px] rounded-full bg-green-500/10 blur-3xl" />
+
+      {toast && (
+
+        <div className="absolute top-6 right-6 z-50 animate-[fadeIn_0.3s_ease-in-out] rounded-2xl border border-green-500/30 bg-green-500/10 px-6 py-4 text-sm font-bold text-green-400 shadow-[0_0_30px_rgba(34,197,94,0.25)]">
+
+          ✅ PIX copiado com sucesso
+
+        </div>
+
+      )}
+
+      <div className="relative w-full max-w-[580px] animate-[fadeIn_0.4s_ease-in-out] rounded-[35px] border border-zinc-800 bg-gradient-to-b from-zinc-900 to-black p-8 shadow-[0_0_80px_rgba(34,197,94,0.08)]">
 
         <div className="mb-10 flex items-center justify-between">
 
           <div>
+
             <div className="inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-sm text-green-400">
+
               ● Sistema online
+
             </div>
 
             <h1 className="mt-4 text-5xl font-black tracking-tight text-white">
+
               Nex<span className="text-green-500">Pay</span>
+
             </h1>
 
             <p className="mt-2 text-zinc-400">
+
               Sistema premium de cobrança PIX
+
             </p>
+
           </div>
 
           <button
             onClick={sair}
-            className="rounded-2xl border border-red-500/40 bg-red-500/10 px-5 py-3 text-sm font-bold text-red-400 transition hover:bg-red-500 hover:text-white"
+            className="rounded-2xl border border-red-500/40 bg-red-500/10 px-5 py-3 text-sm font-bold text-red-400 transition active:scale-95 hover:bg-red-500 hover:text-white"
           >
             Sair
           </button>
@@ -107,20 +165,27 @@ export default function GerarPix() {
         </div>
 
         {!pixGerado && (
+
           <div className="animate-[fadeIn_0.4s_ease-in-out]">
 
             <div className="mb-6 rounded-3xl border border-zinc-800 bg-zinc-950/70 p-6">
 
               <p className="text-sm uppercase tracking-[3px] text-zinc-500">
+
                 Nova cobrança
+
               </p>
 
               <h2 className="mt-3 text-3xl font-black text-white">
+
                 Gerar PIX
+
               </h2>
 
               <p className="mt-2 text-zinc-400">
+
                 Digite o valor da cobrança
+
               </p>
 
             </div>
@@ -132,7 +197,9 @@ export default function GerarPix() {
                 placeholder="R$ 0,00"
                 value={valor}
                 onChange={(e) => {
-                  const value = e.target.value.replace(/\D/g, "");
+
+                  const value =
+                    e.target.value.replace(/\D/g, "");
 
                   const formattedValue =
                     new Intl.NumberFormat("pt-BR", {
@@ -141,42 +208,55 @@ export default function GerarPix() {
                     }).format(Number(value) / 100);
 
                   setValor(formattedValue);
+
                 }}
-                className="rounded-3xl border border-zinc-700 bg-zinc-900 p-7 text-center text-5xl font-black tracking-tight text-green-400 outline-none transition focus:border-green-500 focus:shadow-[0_0_30px_rgba(34,197,94,0.25)]"
+                className="rounded-3xl border border-zinc-700 bg-zinc-900 p-6 text-center text-3xl font-black tracking-tight text-green-400 outline-none transition focus:border-green-500 focus:shadow-[0_0_30px_rgba(34,197,94,0.25)]"
               />
 
               <button
                 onClick={gerarPix}
                 disabled={loading}
-                className="rounded-3xl bg-green-500 p-6 text-xl font-black text-black transition hover:scale-[1.02] hover:bg-green-400 disabled:opacity-50"
+                className="rounded-3xl bg-green-500 p-5 text-lg font-black text-black transition active:scale-95 hover:scale-[1.01] hover:bg-green-400 disabled:opacity-50"
               >
+
                 {loading
                   ? "Gerando cobrança..."
                   : "Gerar PIX"}
+
               </button>
 
             </div>
 
             {loading && (
+
               <div className="mt-6 rounded-3xl border border-green-500/20 bg-green-500/10 p-5 text-center text-green-400">
+
                 Conectando à Pagar.me...
+
               </div>
+
             )}
 
           </div>
+
         )}
 
         {pixGerado && (
+
           <div className="animate-[fadeIn_0.4s_ease-in-out]">
 
-            <div className="mb-6 rounded-3xl border border-green-500/20 bg-green-500/10 p-6 text-center">
+            <div className="mb-6 rounded-3xl border border-green-500/20 bg-green-500/10 p-5 text-center">
 
               <p className="text-sm uppercase tracking-[3px] text-green-400">
+
                 Cobrança criada
+
               </p>
 
-              <h2 className="mt-4 text-6xl font-black text-white">
+              <h2 className="mt-3 text-3xl font-black text-white">
+
                 {valorGerado}
+
               </h2>
 
             </div>
@@ -205,28 +285,40 @@ export default function GerarPix() {
 
             <button
               onClick={copiarPix}
-              className="mt-5 w-full rounded-3xl bg-green-500 p-5 text-lg font-black text-black transition hover:scale-[1.01] hover:bg-green-400"
+              className="mt-5 w-full rounded-3xl bg-green-500 p-5 text-lg font-black text-black transition active:scale-95 hover:scale-[1.01] hover:bg-green-400"
             >
+
               Copiar PIX copia e cola
+
             </button>
 
             <button
               onClick={novaCobranca}
-              className="mt-4 w-full rounded-3xl border border-zinc-700 bg-zinc-900 p-5 text-lg font-bold text-zinc-300 transition hover:border-green-500 hover:text-green-400"
+              className="mt-4 w-full rounded-3xl border border-zinc-700 bg-zinc-900 p-5 text-lg font-bold text-zinc-300 transition active:scale-95 hover:border-green-500 hover:text-green-400"
             >
+
               Gerar nova cobrança
+
             </button>
 
           </div>
+
         )}
 
         {mensagem && (
+
           <div className="mt-6 rounded-3xl border border-zinc-700 bg-zinc-900 p-5 text-center text-sm text-zinc-200">
+
             {mensagem}
+
           </div>
+
         )}
 
       </div>
+
     </main>
+
   );
+
 }
