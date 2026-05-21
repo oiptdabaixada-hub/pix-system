@@ -14,7 +14,26 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "NexPay - Sistema de Pagamento via PIX",
-  description: "Sistema de pagamento via PIX",
+  description:
+    "Plataforma premium para geração de cobranças PIX rápidas, seguras e automatizadas.",
+
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
+
+  openGraph: {
+    title: "NexPay",
+    description:
+      "Sistema premium de pagamentos via PIX.",
+    url: "https://www.nexpay.fun",
+    siteName: "NexPay",
+    locale: "pt_BR",
+    type: "website",
+  },
+
+  metadataBase: new URL("https://www.nexpay.fun"),
 };
 
 export default function RootLayout({
@@ -24,10 +43,12 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-black text-white">
+        {children}
+      </body>
     </html>
   );
 }
