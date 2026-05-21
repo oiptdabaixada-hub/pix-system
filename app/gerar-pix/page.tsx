@@ -76,17 +76,26 @@ export default function GerarPix() {
         setPixGerado(data.pix);
         setValorGerado(valor);
 
-        await supabase.from("cobrancas").insert({
+        const { error } = await supabase.from("cobrancas").insert({
           valor: valor,
           codigo_pix: data.pix,
           status: "pendente",
           txid: data.txid || "",
           pago: false,
         });
+
+        if (error) {
+          console.log("ERRO SUPABASE:", error);
+          setMensagem(`PIX gerado, mas não salvou no histórico: ${error.message}`);
+        } else {
+          console.log("SALVO NO SUPABASE");
+          setMensagem("");
+        }
       } else {
         setMensagem("Não foi possível gerar o PIX.");
       }
     } catch (error) {
+      console.log("ERRO GERAL:", error);
       setMensagem("Erro interno ao gerar PIX.");
     } finally {
       setLoading(false);
@@ -104,12 +113,9 @@ export default function GerarPix() {
         textarea.style.opacity = "0";
 
         document.body.appendChild(textarea);
-
         textarea.focus();
         textarea.select();
-
         document.execCommand("copy");
-
         document.body.removeChild(textarea);
       }
 
@@ -143,12 +149,12 @@ export default function GerarPix() {
       <div className="absolute h-[500px] w-[500px] rounded-full bg-green-500/10 blur-3xl" />
 
       {toast && (
-        <div className="fixed left-1/2 top-6 z-50 -translate-x-1/2 animate-[fadeIn_0.3s_ease-in-out] rounded-2xl border border-green-500/30 bg-green-500 px-6 py-4 text-sm font-black text-black shadow-[0_0_35px_rgba(34,197,94,0.45)]">
+        <div className="fixed left-1/2 top-6 z-50 -translate-x-1/2 rounded-2xl border border-green-500/30 bg-green-500 px-6 py-4 text-sm font-black text-black shadow-[0_0_35px_rgba(34,197,94,0.45)]">
           ✅ PIX copiado com sucesso
         </div>
       )}
 
-      <div className="relative w-full max-w-[580px] animate-[fadeIn_0.4s_ease-in-out] rounded-[35px] border border-zinc-800 bg-gradient-to-b from-zinc-900 to-black p-8 shadow-[0_0_80px_rgba(34,197,94,0.08)]">
+      <div className="relative w-full max-w-[580px] rounded-[35px] border border-zinc-800 bg-gradient-to-b from-zinc-900 to-black p-8 shadow-[0_0_80px_rgba(34,197,94,0.08)]">
         <div className="mb-10 flex items-center justify-between">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-sm text-green-400">
@@ -173,7 +179,7 @@ export default function GerarPix() {
         </div>
 
         {!pixGerado && (
-          <div className="animate-[fadeIn_0.4s_ease-in-out]">
+          <div>
             <div className="mb-6 rounded-3xl border border-zinc-800 bg-zinc-950/70 p-6">
               <p className="text-sm uppercase tracking-[3px] text-zinc-500">
                 Nova cobrança
@@ -224,7 +230,7 @@ export default function GerarPix() {
         )}
 
         {pixGerado && (
-          <div className="animate-[fadeIn_0.4s_ease-in-out]">
+          <div>
             <div className="mb-6 rounded-3xl border border-green-500/20 bg-green-500/10 p-5 text-center">
               <p className="text-sm uppercase tracking-[3px] text-green-400">
                 Cobrança criada
@@ -238,11 +244,7 @@ export default function GerarPix() {
             <div className="mb-6 flex justify-center">
               <div className="rounded-[35px] bg-white p-5 shadow-[0_0_40px_rgba(255,255,255,0.15)]">
                 {qrCode ? (
-                  <img
-                    src={qrCode}
-                    alt="QR Code PIX"
-                    className="rounded-2xl"
-                  />
+                  <img src={qrCode} alt="QR Code PIX" className="rounded-2xl" />
                 ) : (
                   <div className="flex h-[320px] w-[320px] items-center justify-center text-black">
                     Gerando QR Code...
@@ -274,7 +276,7 @@ export default function GerarPix() {
         )}
 
         {mensagem && (
-          <div className="mt-6 rounded-3xl border border-zinc-700 bg-zinc-900 p-5 text-center text-sm text-zinc-200">
+          <div className="mt-6 rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-5 text-center text-sm text-yellow-300">
             {mensagem}
           </div>
         )}
