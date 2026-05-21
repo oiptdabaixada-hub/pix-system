@@ -43,7 +43,7 @@ export default function Login() {
       localStorage.setItem("auth", "admin");
 
       setTimeout(() => {
-        router.push("/configuracoes");
+        router.push("/dashboard");
       }, 1800);
 
       return;
