@@ -231,7 +231,7 @@ export default function GerarPix() {
 
               <div className="mt-6 rounded-3xl border border-green-500/20 bg-green-500/10 p-5 text-center text-green-400">
 
-                Conectando à Pagar.me...
+                Gerando PIX para você...
 
               </div>
 
