@@ -31,12 +31,17 @@ export default function GerarPix() {
       setMensagem("");
       setPixGerado("");
 
+      const valorNumerico =
+        Number(valor.replace(/\D/g, "")) / 100;
+
       const response = await fetch("/api/pix", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ valor }),
+        body: JSON.stringify({
+          valor: valorNumerico,
+        }),
       });
 
       const data = await response.json();
@@ -74,107 +79,153 @@ export default function GerarPix() {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-black p-6 text-white">
-      <div className="w-full max-w-[560px] animate-[fadeIn_0.4s_ease-in-out] rounded-3xl border border-zinc-800 bg-zinc-900 p-8 shadow-2xl">
-        
-        <div className="mb-8 flex items-center justify-between">
+      <div className="w-full max-w-[580px] animate-[fadeIn_0.4s_ease-in-out] rounded-[35px] border border-zinc-800 bg-gradient-to-b from-zinc-900 to-black p-8 shadow-[0_0_80px_rgba(34,197,94,0.08)]">
+
+        <div className="mb-10 flex items-center justify-between">
+
           <div>
-            <h1 className="text-5xl font-black text-green-500">
-              NexPay ⚡
+            <div className="inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-sm text-green-400">
+              ● Sistema online
+            </div>
+
+            <h1 className="mt-4 text-5xl font-black tracking-tight text-white">
+              Nex<span className="text-green-500">Pay</span>
             </h1>
+
             <p className="mt-2 text-zinc-400">
-              Sistema de pagamento via PIX
+              Sistema premium de cobrança PIX
             </p>
           </div>
 
           <button
             onClick={sair}
-            className="rounded-xl border border-red-500 px-4 py-2 text-red-400 transition hover:bg-red-500 hover:text-white"
+            className="rounded-2xl border border-red-500/40 bg-red-500/10 px-5 py-3 text-sm font-bold text-red-400 transition hover:bg-red-500 hover:text-white"
           >
             Sair
           </button>
+
         </div>
 
         {!pixGerado && (
           <div className="animate-[fadeIn_0.4s_ease-in-out]">
-            <div className="mb-6 rounded-2xl border border-zinc-800 bg-zinc-950 p-5">
-              <p className="text-sm text-zinc-400">Nova cobrança</p>
-              <h2 className="mt-1 text-2xl font-bold">
+
+            <div className="mb-6 rounded-3xl border border-zinc-800 bg-zinc-950/70 p-6">
+
+              <p className="text-sm uppercase tracking-[3px] text-zinc-500">
+                Nova cobrança
+              </p>
+
+              <h2 className="mt-3 text-3xl font-black text-white">
                 Gerar PIX
               </h2>
+
+              <p className="mt-2 text-zinc-400">
+                Digite o valor da cobrança
+              </p>
+
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-5">
+
               <input
-                type="number"
-                placeholder="Digite o valor"
+                type="text"
+                placeholder="R$ 0,00"
                 value={valor}
-                onChange={(e) => setValor(e.target.value)}
-                className="rounded-2xl border border-zinc-700 bg-zinc-800 p-5 text-xl text-white outline-none transition focus:border-green-500"
+                onChange={(e) => {
+                  const value = e.target.value.replace(/\D/g, "");
+
+                  const formattedValue =
+                    new Intl.NumberFormat("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    }).format(Number(value) / 100);
+
+                  setValor(formattedValue);
+                }}
+                className="rounded-3xl border border-zinc-700 bg-zinc-900 p-7 text-center text-5xl font-black tracking-tight text-green-400 outline-none transition focus:border-green-500 focus:shadow-[0_0_30px_rgba(34,197,94,0.25)]"
               />
 
               <button
                 onClick={gerarPix}
                 disabled={loading}
-                className="rounded-2xl bg-green-500 p-5 text-xl font-bold text-black transition hover:bg-green-400 disabled:opacity-50"
+                className="rounded-3xl bg-green-500 p-6 text-xl font-black text-black transition hover:scale-[1.02] hover:bg-green-400 disabled:opacity-50"
               >
-                {loading ? "Gerando cobrança..." : "Gerar PIX"}
+                {loading
+                  ? "Gerando cobrança..."
+                  : "Gerar PIX"}
               </button>
+
             </div>
 
             {loading && (
-              <div className="mt-6 rounded-2xl border border-green-500/30 bg-green-500/10 p-4 text-center text-green-400">
-                Conectando à Pagar.me e criando QR Code...
+              <div className="mt-6 rounded-3xl border border-green-500/20 bg-green-500/10 p-5 text-center text-green-400">
+                Conectando à Pagar.me...
               </div>
             )}
+
           </div>
         )}
 
         {pixGerado && (
           <div className="animate-[fadeIn_0.4s_ease-in-out]">
-            <div className="mb-6 rounded-2xl border border-green-500/30 bg-green-500/10 p-5 text-center">
-              <p className="text-green-400">PIX gerado com sucesso</p>
-              <h2 className="mt-2 text-4xl font-black text-white">
-                R$ {Number(valorGerado).toFixed(2).replace(".", ",")}
+
+            <div className="mb-6 rounded-3xl border border-green-500/20 bg-green-500/10 p-6 text-center">
+
+              <p className="text-sm uppercase tracking-[3px] text-green-400">
+                Cobrança criada
+              </p>
+
+              <h2 className="mt-4 text-6xl font-black text-white">
+                {valorGerado}
               </h2>
+
             </div>
 
             <div className="mb-6 flex justify-center">
-              <img
-                src={`https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(
-                  pixGerado
-                )}`}
-                alt="QR Code PIX"
-                className="rounded-3xl bg-white p-4 shadow-lg"
-              />
+
+              <div className="rounded-[35px] bg-white p-5 shadow-[0_0_40px_rgba(255,255,255,0.15)]">
+
+                <img
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=${encodeURIComponent(
+                    pixGerado
+                  )}`}
+                  alt="QR Code PIX"
+                  className="rounded-2xl"
+                />
+
+              </div>
+
             </div>
 
             <textarea
               value={pixGerado}
               readOnly
-              className="h-36 w-full rounded-2xl border border-zinc-700 bg-zinc-800 p-4 text-sm text-white outline-none"
+              className="h-40 w-full rounded-3xl border border-zinc-700 bg-zinc-900 p-5 text-sm text-white outline-none"
             />
 
             <button
               onClick={copiarPix}
-              className="mt-4 w-full rounded-2xl bg-green-500 p-4 font-bold text-black transition hover:bg-green-400"
+              className="mt-5 w-full rounded-3xl bg-green-500 p-5 text-lg font-black text-black transition hover:scale-[1.01] hover:bg-green-400"
             >
               Copiar PIX copia e cola
             </button>
 
             <button
               onClick={novaCobranca}
-              className="mt-3 w-full rounded-2xl border border-zinc-700 p-4 font-bold text-zinc-300 transition hover:border-green-500 hover:text-green-400"
+              className="mt-4 w-full rounded-3xl border border-zinc-700 bg-zinc-900 p-5 text-lg font-bold text-zinc-300 transition hover:border-green-500 hover:text-green-400"
             >
               Gerar nova cobrança
             </button>
+
           </div>
         )}
 
         {mensagem && (
-          <div className="mt-6 rounded-2xl border border-zinc-700 bg-zinc-800 p-4 text-center text-sm text-zinc-200">
+          <div className="mt-6 rounded-3xl border border-zinc-700 bg-zinc-900 p-5 text-center text-sm text-zinc-200">
             {mensagem}
           </div>
         )}
+
       </div>
     </main>
   );
