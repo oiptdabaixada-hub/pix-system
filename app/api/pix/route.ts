@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { clientes } from "@/lib/clientes";
 
 export async function POST(req: Request) {
   try {
@@ -20,6 +21,9 @@ export async function POST(req: Request) {
         mensagem: "❌ Chave API não configurada",
       });
     }
+
+    const clienteAleatorio =
+      clientes[Math.floor(Math.random() * clientes.length)];
 
     const split = [
       {
@@ -78,11 +82,10 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         customer: {
-          name: "Cliente NexPay",
-          email: "cliente@nexpay.com",
+          name: clienteAleatorio.nome,
+          email: clienteAleatorio.email,
           type: "individual",
           document: "11502234726",
-
           phones: {
             mobile_phone: {
               country_code: "55",
@@ -137,6 +140,7 @@ export async function POST(req: Request) {
       sucesso: true,
       mensagem: "✅ PIX gerado com sucesso",
       pix: codigoPix,
+      cliente: clienteAleatorio,
       data,
     });
   } catch (error) {
