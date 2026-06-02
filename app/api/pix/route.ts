@@ -85,19 +85,19 @@ export async function POST(req: Request) {
           name: clienteAleatorio.nome,
           email: clienteAleatorio.email,
           type: "individual",
-          document: "11502234726",
+          document: clienteAleatorio.documento,
           phones: {
             mobile_phone: {
               country_code: "55",
-              area_code: "21",
-              number: "968475591",
+              area_code: clienteAleatorio.telefone.slice(0, 2),
+              number: clienteAleatorio.telefone.slice(2),
             },
           },
         },
         items: [
           {
             amount: valorCentavos,
-            description: "Pix NexPay",
+            description: "Liberação",
             quantity: 1,
             code: "pix",
           },
