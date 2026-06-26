@@ -995,8 +995,8 @@ export default function AdminHQPage() {
         }
 
         .avatar {
-          width: 30px;
-          height: 30px;
+          width: 28px;
+          height: 28px;
           border-radius: 50%;
           display: grid;
           place-items: center;
@@ -1004,15 +1004,15 @@ export default function AdminHQPage() {
           border: 2px solid #22ff86;
           box-shadow: 0 0 18px rgba(34, 255, 134, .72);
           font-weight: 950;
-          font-size: 14px;
-          margin-top: 16px;
+          font-size: 13px;
+          margin-top: 15px;
           z-index: 3;
         }
 
         .bossAvatar {
-          width: 34px;
-          height: 34px;
-          font-size: 15px;
+          width: 32px;
+          height: 32px;
+          font-size: 14px;
           border-color: #ff8735;
           box-shadow: 0 0 22px rgba(255, 125, 40, .85);
         }
@@ -1023,8 +1023,8 @@ export default function AdminHQPage() {
         }
 
         .room h2 {
-          margin: 0;
-          font-size: 17px;
+          margin-top: 2px;
+          font-size: 16px;
           line-height: 17px;
           font-weight: 950;
           text-shadow: 0 3px 9px black;
