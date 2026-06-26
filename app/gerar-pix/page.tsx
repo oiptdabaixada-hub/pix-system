@@ -1,9 +1,17 @@
 "use client";
 
 import QRCode from "qrcode";
-import { supabase } from "@/lib/supabase";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+
+type PartnerRoom = {
+  room_code: string;
+  room_name: string;
+  partner_name: string | null;
+  principal_percent: number | null;
+  pete_percent: number | null;
+  partner_percent: number | null;
+};
 
 export default function GerarPix() {
   const router = useRouter();
@@ -15,13 +23,18 @@ export default function GerarPix() {
   const [qrCode, setQrCode] = useState("");
   const [valorGerado, setValorGerado] = useState("");
   const [toast, setToast] = useState(false);
+  const [room, setRoom] = useState<PartnerRoom | null>(null);
 
   useEffect(() => {
     const auth = localStorage.getItem("auth");
+    const savedRoom = localStorage.getItem("partnerRoom");
 
-    if (auth !== "cliente") {
+    if (auth !== "partner" || !savedRoom) {
       router.push("/login");
+      return;
     }
+
+    setRoom(JSON.parse(savedRoom));
   }, [router]);
 
   useEffect(() => {
@@ -52,6 +65,11 @@ export default function GerarPix() {
       return;
     }
 
+    if (!room) {
+      setMensagem("Sala não encontrada. Faça login novamente.");
+      return;
+    }
+
     try {
       setLoading(true);
       setMensagem("");
@@ -67,6 +85,7 @@ export default function GerarPix() {
         },
         body: JSON.stringify({
           valor: valorNumerico,
+          room_code: room.room_code,
         }),
       });
 
@@ -75,24 +94,9 @@ export default function GerarPix() {
       if (data.sucesso) {
         setPixGerado(data.pix);
         setValorGerado(valor);
-
-        const { error } = await supabase.from("cobrancas").insert({
-          valor: valor,
-          codigo_pix: data.pix,
-          status: "pendente",
-          txid: data.txid || "",
-          pago: false,
-        });
-
-        if (error) {
-          console.log("ERRO SUPABASE:", error);
-          setMensagem(`PIX gerado, mas não salvou no histórico: ${error.message}`);
-        } else {
-          console.log("SALVO NO SUPABASE");
-          setMensagem("");
-        }
+        setMensagem("");
       } else {
-        setMensagem("Não foi possível gerar o PIX.");
+        setMensagem(data.erro || "Não foi possível gerar o PIX.");
       }
     } catch (error) {
       console.log("ERRO GERAL:", error);
@@ -125,7 +129,7 @@ export default function GerarPix() {
       setTimeout(() => {
         setToast(false);
       }, 2500);
-    } catch (error) {
+    } catch {
       setMensagem("Não foi possível copiar. Segure no código e copie manualmente.");
     }
   }
@@ -141,12 +145,15 @@ export default function GerarPix() {
 
   function sair() {
     localStorage.removeItem("auth");
+    localStorage.removeItem("partnerRoom");
+    localStorage.removeItem("partnerRoomCode");
     router.push("/login");
   }
 
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black p-6 text-white">
-      <div className="absolute h-[500px] w-[500px] rounded-full bg-green-500/10 blur-3xl" />
+      <div className="absolute left-[-180px] top-[-180px] h-[560px] w-[560px] rounded-full bg-green-500/10 blur-3xl" />
+      <div className="absolute bottom-[-220px] right-[-220px] h-[620px] w-[620px] rounded-full bg-emerald-500/10 blur-3xl" />
 
       {toast && (
         <div className="fixed left-1/2 top-6 z-50 -translate-x-1/2 rounded-2xl border border-green-500/30 bg-green-500 px-6 py-4 text-sm font-black text-black shadow-[0_0_35px_rgba(34,197,94,0.45)]">
@@ -154,8 +161,8 @@ export default function GerarPix() {
         </div>
       )}
 
-      <div className="relative w-full max-w-[580px] rounded-[35px] border border-zinc-800 bg-gradient-to-b from-zinc-900 to-black p-8 shadow-[0_0_80px_rgba(34,197,94,0.08)]">
-        <div className="mb-10 flex items-center justify-between">
+      <div className="relative w-full max-w-[620px] rounded-[38px] border border-zinc-800 bg-gradient-to-b from-zinc-900 to-black p-8 shadow-[0_0_90px_rgba(34,197,94,0.10)]">
+        <div className="mb-8 flex items-center justify-between gap-5">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-green-500/20 bg-green-500/10 px-4 py-2 text-sm text-green-400">
               ● Sistema online
@@ -166,7 +173,7 @@ export default function GerarPix() {
             </h1>
 
             <p className="mt-2 text-zinc-400">
-              Sistema premium de cobrança PIX
+              Central Premium de Cobranças PIX
             </p>
           </div>
 
@@ -177,6 +184,29 @@ export default function GerarPix() {
             Sair
           </button>
         </div>
+
+        {room && (
+          <div className="mb-6 rounded-3xl border border-green-500/20 bg-green-500/5 p-5">
+            <p className="text-xs font-black uppercase tracking-[3px] text-green-400">
+              Sala ativa
+            </p>
+
+            <div className="mt-3 flex items-center justify-between gap-4">
+              <div>
+                <h2 className="text-2xl font-black">
+                  {room.partner_name || room.room_name}
+                </h2>
+                <p className="text-sm text-zinc-400">{room.room_name}</p>
+              </div>
+
+              <div className="rounded-2xl border border-green-500/20 bg-green-500/5 px-5 py-3">
+                <p className="text-sm font-semibold text-green-400">
+                  ● Sistema conectado
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {!pixGerado && (
           <div>
@@ -223,7 +253,7 @@ export default function GerarPix() {
 
             {loading && (
               <div className="mt-6 rounded-3xl border border-green-500/20 bg-green-500/10 p-5 text-center text-green-400">
-                Gerando PIX para você...
+                Gerando PIX com segurança...
               </div>
             )}
           </div>
