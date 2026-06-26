@@ -995,8 +995,8 @@ export default function AdminHQPage() {
         }
 
         .avatar {
-          width: 28px;
-          height: 28px;
+          width: 24px;
+          height: 24px;
           border-radius: 50%;
           display: grid;
           place-items: center;
@@ -1004,8 +1004,9 @@ export default function AdminHQPage() {
           border: 2px solid #22ff86;
           box-shadow: 0 0 18px rgba(34, 255, 134, .72);
           font-weight: 950;
-          font-size: 13px;
-          margin-top: 15px;
+          font-size: 10px;
+          margin-top: 0px;
+          transform: translateY(20px);
           z-index: 3;
         }
 
