@@ -964,7 +964,7 @@ export default function AdminHQPage() {
 
         .roomLabel {
           position: absolute;
-          top: 17px;
+          top: 10px;
           left: 50%;
           transform: translateX(-50%);
           padding: 5px 13px;
@@ -1005,8 +1005,7 @@ export default function AdminHQPage() {
           box-shadow: 0 0 18px rgba(34, 255, 134, .72);
           font-weight: 950;
           font-size: 10px;
-          margin-top: 0px;
-          transform: translateY(20px);
+          margin-top: 15px;
           z-index: 3;
         }
 
