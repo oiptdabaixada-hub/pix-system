@@ -301,4 +301,228 @@ export const clientes = [
   telefone: "24983257416",
 },
 
+{
+  nome: "Liberacao",
+  email: "liberacao19@gmail.com",
+  documento: "24899150881",
+  telefone: "9899785641",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao220@gmail.com",
+  documento: "26748208882",
+  telefone: "33998745612",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao140@gmail.com",
+  documento: "10027007871",
+  telefone: "21975401847",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao159@gmail.com",
+  documento: "26157770848",
+  telefone: "11975401849",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao14@gmail.com",
+  documento: "07935202826",
+  telefone: "16998745632",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao19@gmail.com",
+  documento: "16089216895",
+  telefone: "9899785641",
+},
+
+{
+  nome: "DAMARES DAIANE DE SOUZA FRANCA",
+  email: "damaresfranca@gmail.com",
+  documento: "38377874865",
+  telefone: "12997845632",
+},
+
+{
+  nome: "CATIA CRISTINA CAVALCANTI BERTOLINI",
+  email: "catiabertolini@gmail.com",
+  documento: "27369084817",
+  telefone: "11975401847",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao129@gmail.com",
+  documento: "21567032800",
+  telefone: "22997847498",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao280@gmail.com",
+  documento: "28036088800",
+  telefone: "45980684563",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao143@gmail.com",
+  documento: "06597875800",
+  telefone: "11975401847",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao28@gmail.com",
+  documento: "18552567890",
+  telefone: "21997845632",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao4@gmail.com",
+  documento: "00950838802",
+  telefone: "13997845632",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao143@gmail.com",
+  documento: "10355811839",
+  telefone: "719978045632",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao129@gmail.com",
+  documento: "22170315896",
+  telefone: "22997845632",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao29@gmail.com",
+  documento: "12409145809",
+  telefone: "11997845632",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao12@gmail.com",
+  documento: "86044974804",
+  telefone: "98997845632",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacaopaulo@gmail.com",
+  documento: "09670018897",
+  telefone: "47997845632",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao1423@gmail.com",
+  documento: "69387575853",
+  telefone: "12997845632",
+},
+
+{
+  nome: "CLAUDIA KIYOMI QUIAN TRANI",
+  email: "claudiakiyomi@gmail.com",
+  documento: "13234685878",
+  telefone: "",
+},
+
+{
+  nome: "EULALIA MACIEL BRANCO TEIXEIRA",
+  email: "eulaliamaciel@gmail.com",
+  documento: "67648541815",
+  telefone: "32974856328",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacaoluis@gmail.com",
+  documento: "27245294801",
+  telefone: "22968745632",
+},
+
+{
+  nome: "CELY SILVA DANTAS MEDEIROS",
+  email: "celysilva@gmail.com",
+  documento: "30823358615",
+  telefone: "11975401847",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacaocar34@gmail.com",
+  documento: "11372496840",
+  telefone: "129897845632",
+},
+
+{
+  nome: "RICHARD BRENDO CARVALHO FERREIRA SILVA",
+  email: "richardbrendo@gmail.com",
+  documento: "46452665863",
+  telefone: "22967845632",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao15@gmail.com",
+  documento: "14501097809",
+  telefone: "61974845632",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao992@gmail.com",
+  documento: "30136107869",
+  telefone: "24968745678",
+},
+
+{
+  nome: "DEISE BERNARDES LEITE DA SILVA",
+  email: "deisebernardes@gmail.com",
+  documento: "24980491855",
+  telefone: "98996790632",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao992@gmail.com",
+  documento: "28165850857",
+  telefone: "67998745632",
+},
+
+{
+  nome: "CASSIANO AUGUSTO CAVALCANTI",
+  email: "cassianoaugusto@gmail.com",
+  documento: "17655999899",
+  telefone: "45998745632",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao4@gmail.com",
+  documento: "00321385802",
+  telefone: "21989874532",
+},
+
+{
+  nome: "Liberacao",
+  email: "liberacao12@gmail.com",
+  documento: "09786986814",
+  telefone: "11989874532",
+},
+
 ];
