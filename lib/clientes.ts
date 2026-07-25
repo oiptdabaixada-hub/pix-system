@@ -525,4 +525,592 @@ export const clientes = [
   telefone: "11989874532",
 },
 
+{
+  nome: "Liberacao",
+  email: "liberacao01@gmail.com",
+  documento: "29594631880",
+  telefone: "31949699590",
+ },
+
+{
+  nome: "SIMONE CRISTINA DA SILVA NEVES",
+  email: "simoneneves@gmail.com",
+  documento: "31623021880",
+  telefone: "33919290594",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao02@gmail.com",
+  documento: "09172011831",
+  telefone: "96970128435",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao03@gmail.com",
+  documento: "33347906810",
+  telefone: "99975898679",
+ },
+
+{
+  nome: "MARIA CRISTINA LOURENCO PEREIRA",
+  email: "mariapereira@gmail.com",
+  documento: "12909871819",
+  telefone: "32968949710",
+ },
+
+{
+  nome: "REINALDO PAIXAO DO ESPIRITO SANTO",
+  email: "reinaldosanto@gmail.com",
+  documento: "00913836508",
+  telefone: "52933209953",
+ },
+
+{
+  nome: "LUIZ CHARLES TEIXEIRA DE SALES",
+  email: "luizsales@gmail.com",
+  documento: "25596273880",
+  telefone: "49969911974",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao04@gmail.com",
+  documento: "15224637805",
+  telefone: "16963018422",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao05@gmail.com",
+  documento: "08799250861",
+  telefone: "57932220583",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao06@gmail.com",
+  documento: "18510926840",
+  telefone: "25974664380",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao07@gmail.com",
+  documento: "11698209800",
+  telefone: "70914620690",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao08@gmail.com",
+  documento: "46440280880",
+  telefone: "23975968092",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao09@gmail.com",
+  documento: "10491004842",
+  telefone: "50993415105",
+ },
+
+{
+  nome: "MARIA EDILEUZA BARBOZA DE OLIVEIRA",
+  email: "mariaoliveira@gmail.com",
+  documento: "32963026897",
+  telefone: "21954935040",
+ },
+
+{
+  nome: "SINTIA APARECIDA ALVES RIBEIRO",
+  email: "sintiaribeiro@gmail.com",
+  documento: "30212283804",
+  telefone: "28943926345",
+ },
+
+{
+  nome: "MARIA GENIVALDA ALEXANDRE DAS NEVES",
+  email: "marianeves@gmail.com",
+  documento: "01326797875",
+  telefone: "80949471785",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao10@gmail.com",
+  documento: "52163741834",
+  telefone: "66937154350",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao11@gmail.com",
+  documento: "34035479810",
+  telefone: "53999648503",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao12@gmail.com",
+  documento: "41010417843",
+  telefone: "17909060762",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao13@gmail.com",
+  documento: "48426586813",
+  telefone: "32967258509",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao14@gmail.com",
+  documento: "32698976853",
+  telefone: "13995562847",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao15@gmail.com",
+  documento: "08235115883",
+  telefone: "19934954810",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao16@gmail.com",
+  documento: "29111142804",
+  telefone: "75913865068",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao17@gmail.com",
+  documento: "39571863823",
+  telefone: "95909716928",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao18@gmail.com",
+  documento: "80521991820",
+  telefone: "60950613889",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao19@gmail.com",
+  documento: "48426498876",
+  telefone: "94915875307",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao20@gmail.com",
+  documento: "38065457827",
+  telefone: "93987770458",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao21@gmail.com",
+  documento: "54955335853",
+  telefone: "31901589790",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao22@gmail.com",
+  documento: "31635783810",
+  telefone: "39941590411",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao23@gmail.com",
+  documento: "01707565996",
+  telefone: "94962278116",
+ },
+
+{
+  nome: "AMANDA CRISTINA DA SILVA NEVES GOMES",
+  email: "amandagomes@gmail.com",
+  documento: "48191228866",
+  telefone: "65970660049",
+ },
+
+{
+  nome: "ALESSANDRA ADEILDA OLIVEIRA SANTOS",
+  email: "alessandrasantos@gmail.com",
+  documento: "14804830871",
+  telefone: "27932069281",
+ },
+
+{
+  nome: "MOISES HENRIQUE DE ARAUJO NASCIMENTO",
+  email: "moisesnascimento@gmail.com",
+  documento: "35652679840",
+  telefone: "25928230450",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao24@gmail.com",
+  documento: "44409925873",
+  telefone: "87903738116",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao25@gmail.com",
+  documento: "43952311871",
+  telefone: "65998213740",
+ },
+
+{
+  nome: "STEPHANIE LARISSA DE OLIVEIRA PORTO",
+  email: "stephanieporto@gmail.com",
+  documento: "45653370886",
+  telefone: "33977069481",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao26@gmail.com",
+  documento: "34346941885",
+  telefone: "63951689506",
+ },
+
+{
+  nome: "WALEN ROBERTO GONCALVES MARTINS",
+  email: "walenmartins@gmail.com",
+  documento: "34221460830",
+  telefone: "59930170751",
+ },
+
+{
+  nome: "KELVIN MARTINS PESSOA DE QUEIROZ",
+  email: "kelvinqueiroz@gmail.com",
+  documento: "42708147803",
+  telefone: "85949763512",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao27@gmail.com",
+  documento: "33741324809",
+  telefone: "62943231495",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao28@gmail.com",
+  documento: "02179087306",
+  telefone: "52905591715",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao29@gmail.com",
+  documento: "30922255890",
+  telefone: "16993352128",
+ },
+
+{
+  nome: "PAULO VICTOR COLARES NASCIMENTO",
+  email: "paulonascimento@gmail.com",
+  documento: "46113887863",
+  telefone: "73936498585",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao30@gmail.com",
+  documento: "16297533865",
+  telefone: "65975058024",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao31@gmail.com",
+  documento: "32103710835",
+  telefone: "17941977422",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao32@gmail.com",
+  documento: "03815351855",
+  telefone: "29993525736",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao33@gmail.com",
+  documento: "59994452800",
+  telefone: "24979956046",
+ },
+
+{
+  nome: "PAMELA FERNANDA MARTINS DE OLIVEIRA",
+  email: "pamelaoliveira@gmail.com",
+  documento: "40185482813",
+  telefone: "27937294978",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao34@gmail.com",
+  documento: "11803644818",
+  telefone: "15949969229",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao35@gmail.com",
+  documento: "08686355889",
+  telefone: "61947858991",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao36@gmail.com",
+  documento: "08945573860",
+  telefone: "19901763277",
+ },
+
+{
+  nome: "MARIA ELIZABETH DA SILVA NEVES",
+  email: "marianeves62@gmail.com",
+  documento: "15248215862",
+  telefone: "46996429145",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao37@gmail.com",
+  documento: "31412122600",
+  telefone: "38959301041",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao38@gmail.com",
+  documento: "06581014982",
+  telefone: "34938042174",
+ },
+
+{
+  nome: "JOELMA FELICIANO FERREIRA DA SILVA",
+  email: "joelmasilva@gmail.com",
+  documento: "30691790884",
+  telefone: "71940139114",
+ },
+
+{
+  nome: "ELAINE CRISTINA BARBOSA DE OLIVEIRA",
+  email: "elaineoliveira@gmail.com",
+  documento: "41129460827",
+  telefone: "21988357416",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao39@gmail.com",
+  documento: "31456363832",
+  telefone: "98930763223",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao40@gmail.com",
+  documento: "27433979859",
+  telefone: "19955312332",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao41@gmail.com",
+  documento: "12899333755",
+  telefone: "31987442806",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao42@gmail.com",
+  documento: "02926271301",
+  telefone: "77990939549",
+ },
+
+{
+  nome: "THAMIRES FERNANDA GONCALVES MARTINS",
+  email: "thamiresmartins@gmail.com",
+  documento: "39727365841",
+  telefone: "61967021671",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao43@gmail.com",
+  documento: "44301030972",
+  telefone: "38930105369",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao44@gmail.com",
+  documento: "62726412815",
+  telefone: "41985719470",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao45@gmail.com",
+  documento: "28858759842",
+  telefone: "87941979205",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao46@gmail.com",
+  documento: "81760655449",
+  telefone: "97901544443",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao47@gmail.com",
+  documento: "11427897808",
+  telefone: "49974444725",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao48@gmail.com",
+  documento: "28398532807",
+  telefone: "72929802099",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao49@gmail.com",
+  documento: "31825233845",
+  telefone: "68939770935",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao50@gmail.com",
+  documento: "46217826810",
+  telefone: "75935370245",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao51@gmail.com",
+  documento: "11486251439",
+  telefone: "36912324000",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao52@gmail.com",
+  documento: "81009542834",
+  telefone: "59964261231",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao53@gmail.com",
+  documento: "45382214816",
+  telefone: "11926624753",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao54@gmail.com",
+  documento: "10192766813",
+  telefone: "76993643788",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao55@gmail.com",
+  documento: "00685591867",
+  telefone: "15920162005",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao56@gmail.com",
+  documento: "03582816877",
+  telefone: "17907296649",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao57@gmail.com",
+  documento: "97592323591",
+  telefone: "42956026602",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao58@gmail.com",
+  documento: "09216245816",
+  telefone: "12958790450",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao59@gmail.com",
+  documento: "03639467809",
+  telefone: "43965750864",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao60@gmail.com",
+  documento: "03823449877",
+  telefone: "46947246086",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao61@gmail.com",
+  documento: "03878889186",
+  telefone: "32923125726",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao62@gmail.com",
+  documento: "04738994859",
+  telefone: "15903556367",
+ },
+
+{
+  nome: "DENYS DOUGLAS GOMES RIBEIRO DOS SANTOS",
+  email: "denyssantos@gmail.com",
+  documento: "34874120806",
+  telefone: "66979686173",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao63@gmail.com",
+  documento: "29895301855",
+  telefone: "48953909706",
+ },
+
+{
+  nome: "Liberacao",
+  email: "liberacao64@gmail.com",
+  documento: "21701547872",
+  telefone: "45981962395",
+ },
+
 ];
