@@ -22,17 +22,11 @@ export async function POST(req: Request) {
     const roomCode = body.room_code;
 
     if (!valor || valor <= 0) {
-      return NextResponse.json({
-        sucesso: false,
-        erro: "Valor inválido",
-      });
+      return NextResponse.json({ sucesso: false, erro: "Valor inválido" });
     }
 
     if (!roomCode) {
-      return NextResponse.json({
-        sucesso: false,
-        erro: "Sala do parceiro não enviada",
-      });
+      return NextResponse.json({ sucesso: false, erro: "Sala do parceiro não enviada" });
     }
 
     const { data: room, error: roomError } = await supabase
@@ -42,10 +36,7 @@ export async function POST(req: Request) {
       .single();
 
     if (roomError || !room) {
-      return NextResponse.json({
-        sucesso: false,
-        erro: "Sala não encontrada no Supabase",
-      });
+      return NextResponse.json({ sucesso: false, erro: "Sala não encontrada no Supabase" });
     }
 
     const apiKey = getPagarmeKey(room.gateway_account);
@@ -53,40 +44,39 @@ export async function POST(req: Request) {
     if (!apiKey) {
       return NextResponse.json({
         sucesso: false,
-        erro: `Chave Pagar.me não configurada para ${
-          room.gateway_account || "conta_1"
-        }`,
+        erro: `Chave Pagar.me não configurada para ${room.gateway_account || "conta_1"}`,
       });
     }
 
-    const splitBase = [
-      {
-        name: "principal",
-        recipient_id: room.principal_recipient_id,
-        amount: Number(room.principal_percent || 0),
-      },
-      {
-        name: "pete021",
-        recipient_id: room.pete_recipient_id,
-        amount: Number(room.pete_percent || 0),
-      },
-      {
-        name: "partner",
-        recipient_id: room.partner_recipient_id,
-        amount: Number(room.partner_percent || 0),
-      },
-    ].filter((item) => item.recipient_id && item.amount > 0);
+    const splitRows = [
+      { name: "principal", recipient_id: room.principal_recipient_id, amount: Number(room.principal_percent || 0) },
+      { name: "pete021", recipient_id: room.pete_recipient_id, amount: Number(room.pete_percent || 0) },
+      { name: "partner", recipient_id: room.partner_recipient_id, amount: Number(room.partner_percent || 0) },
+      { name: "extra_1", recipient_id: room.extra_recipient_1_id, amount: Number(room.extra_recipient_1_percent || 0) },
+      { name: "extra_2", recipient_id: room.extra_recipient_2_id, amount: Number(room.extra_recipient_2_percent || 0) },
+    ];
 
-    const totalPercent = splitBase.reduce(
-      (total, item) => total + item.amount,
-      0
-    );
+    const invalidRows = splitRows.filter((item) => {
+      const hasId = Boolean(item.recipient_id && String(item.recipient_id).trim());
+      const hasPercent = item.amount > 0;
+      return hasId !== hasPercent;
+    });
 
-    if (splitBase.length === 0) {
+    if (invalidRows.length > 0) {
       return NextResponse.json({
         sucesso: false,
-        erro: "Nenhum recipient configurado nessa sala",
+        erro: "Cada recipient usado precisa ter ID e porcentagem maior que 0.",
       });
+    }
+
+    const splitBase = splitRows.filter(
+      (item) => item.recipient_id && String(item.recipient_id).trim() && item.amount > 0
+    );
+
+    const totalPercent = splitBase.reduce((total, item) => total + item.amount, 0);
+
+    if (splitBase.length === 0) {
+      return NextResponse.json({ sucesso: false, erro: "Nenhum recipient configurado nessa sala" });
     }
 
     if (totalPercent !== 100) {
@@ -107,18 +97,13 @@ export async function POST(req: Request) {
       },
     }));
 
-    const clienteAleatorio =
-      clientes[Math.floor(Math.random() * clientes.length)];
-
+    const clienteAleatorio = clientes[Math.floor(Math.random() * clientes.length)];
     const valorCentavos = Math.round(valor * 100);
     const auth = Buffer.from(`${apiKey}:`).toString("base64");
 
     const response = await fetch("https://api.pagar.me/core/v5/orders", {
       method: "POST",
-      headers: {
-        Authorization: `Basic ${auth}`,
-        "Content-Type": "application/json",
-      },
+      headers: { Authorization: `Basic ${auth}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         customer: {
           name: clienteAleatorio.nome,
@@ -133,23 +118,8 @@ export async function POST(req: Request) {
             },
           },
         },
-        items: [
-          {
-            amount: valorCentavos,
-            description: "Liberação",
-            quantity: 1,
-            code: "pix",
-          },
-        ],
-        payments: [
-          {
-            payment_method: "pix",
-            pix: {
-              expires_in: 3600,
-            },
-            split,
-          },
-        ],
+        items: [{ amount: valorCentavos, description: "Liberação", quantity: 1, code: "pix" }],
+        payments: [{ payment_method: "pix", pix: { expires_in: 3600 }, split }],
       }),
     });
 
@@ -159,7 +129,6 @@ export async function POST(req: Request) {
 
     if (!response.ok) {
       console.log("ERRO PAGARME:", JSON.stringify(data, null, 2));
-
       return NextResponse.json({
         sucesso: false,
         erro: data?.message || "Erro ao gerar PIX na Pagar.me",
@@ -208,10 +177,6 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     console.log("ERRO INTERNO:", error);
-
-    return NextResponse.json({
-      sucesso: false,
-      erro: "Erro interno ao gerar PIX",
-    });
+    return NextResponse.json({ sucesso: false, erro: "Erro interno ao gerar PIX" });
   }
 }

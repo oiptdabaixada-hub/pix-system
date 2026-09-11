@@ -15,7 +15,7 @@ export const clientes = [
 },
 
 {
-  nome: "liberacao",
+  nome: "Liberação",
   email: "liberacao209@gmail.com",
   documento: "99098130178",
   telefone: "92981758631",
@@ -36,7 +36,7 @@ export const clientes = [
 },
 
 {
-  nome: "liberacao",
+  nome: "Liberação",
   email: "liberacaola200@gmail.com",
   documento: "04420582928",
   telefone: "84999384558",
@@ -57,7 +57,7 @@ export const clientes = [
 },
 
 {
-  nome: "liberacao",
+  nome: "Liberação",
   email: "liberacao140@gmail.com",
   documento: "72061901891",
   telefone: "22992015626",
@@ -92,7 +92,7 @@ export const clientes = [
 },
 
 {
-  nome: "liberacao",
+  nome: "Liberação",
   email: "vanessa1@rigel.mar.br",
   documento: "05283811484",
   telefone: "27988283274",
@@ -120,7 +120,7 @@ export const clientes = [
 },
 
 {
-  nome: "liberacao",
+  nome: "Liberação",
   email: "luzia_costureira@hotmail.com",
   documento: "11757899847",
   telefone: "558291810239",
@@ -141,14 +141,14 @@ export const clientes = [
 },
 
 {
-  nome: "liberacao",
+  nome: "Liberação",
   email: "thay_tmg@hotmail.com",
   documento: "01892591081",
   telefone: "21975401847",
 },
 
 {
-  nome: "liberacao",
+  nome: "Liberação",
   email: "leticiacarmelin98@gmail.com",
   documento: "47387905878",
   telefone: "92991871136",
@@ -302,42 +302,42 @@ export const clientes = [
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao19@gmail.com",
   documento: "24899150881",
   telefone: "9899785641",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao220@gmail.com",
   documento: "26748208882",
   telefone: "33998745612",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao140@gmail.com",
   documento: "10027007871",
   telefone: "21975401847",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao159@gmail.com",
   documento: "26157770848",
   telefone: "11975401849",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao14@gmail.com",
   documento: "07935202826",
   telefone: "16998745632",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao19@gmail.com",
   documento: "16089216895",
   telefone: "9899785641",
@@ -358,77 +358,77 @@ export const clientes = [
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao129@gmail.com",
   documento: "21567032800",
   telefone: "22997847498",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao280@gmail.com",
   documento: "28036088800",
   telefone: "45980684563",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao143@gmail.com",
   documento: "06597875800",
   telefone: "11975401847",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao28@gmail.com",
   documento: "18552567890",
   telefone: "21997845632",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao4@gmail.com",
   documento: "00950838802",
   telefone: "13997845632",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao143@gmail.com",
   documento: "10355811839",
   telefone: "719978045632",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao129@gmail.com",
   documento: "22170315896",
   telefone: "22997845632",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao29@gmail.com",
   documento: "12409145809",
   telefone: "11997845632",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao12@gmail.com",
   documento: "86044974804",
   telefone: "98997845632",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacaopaulo@gmail.com",
   documento: "09670018897",
   telefone: "47997845632",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao1423@gmail.com",
   documento: "69387575853",
   telefone: "12997845632",
@@ -449,7 +449,7 @@ export const clientes = [
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacaoluis@gmail.com",
   documento: "27245294801",
   telefone: "22968745632",
@@ -463,7 +463,7 @@ export const clientes = [
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacaocar34@gmail.com",
   documento: "11372496840",
   telefone: "129897845632",
@@ -477,14 +477,14 @@ export const clientes = [
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao15@gmail.com",
   documento: "14501097809",
   telefone: "61974845632",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao992@gmail.com",
   documento: "30136107869",
   telefone: "24968745678",
@@ -498,7 +498,7 @@ export const clientes = [
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao992@gmail.com",
   documento: "28165850857",
   telefone: "67998745632",
@@ -512,21 +512,21 @@ export const clientes = [
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao4@gmail.com",
   documento: "00321385802",
   telefone: "21989874532",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao12@gmail.com",
   documento: "09786986814",
   telefone: "11989874532",
 },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao01@gmail.com",
   documento: "29594631880",
   telefone: "31949699590",
@@ -540,14 +540,14 @@ export const clientes = [
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao02@gmail.com",
   documento: "09172011831",
   telefone: "96970128435",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao03@gmail.com",
   documento: "33347906810",
   telefone: "99975898679",
@@ -575,42 +575,42 @@ export const clientes = [
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao04@gmail.com",
   documento: "15224637805",
   telefone: "16963018422",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao05@gmail.com",
   documento: "08799250861",
   telefone: "57932220583",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao06@gmail.com",
   documento: "18510926840",
   telefone: "25974664380",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao07@gmail.com",
   documento: "11698209800",
   telefone: "70914620690",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao08@gmail.com",
   documento: "46440280880",
   telefone: "23975968092",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao09@gmail.com",
   documento: "10491004842",
   telefone: "50993415105",
@@ -638,98 +638,98 @@ export const clientes = [
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao10@gmail.com",
   documento: "52163741834",
   telefone: "66937154350",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao11@gmail.com",
   documento: "34035479810",
   telefone: "53999648503",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao12@gmail.com",
   documento: "41010417843",
   telefone: "17909060762",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao13@gmail.com",
   documento: "48426586813",
   telefone: "32967258509",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao14@gmail.com",
   documento: "32698976853",
   telefone: "13995562847",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao15@gmail.com",
   documento: "08235115883",
   telefone: "19934954810",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao16@gmail.com",
   documento: "29111142804",
   telefone: "75913865068",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao17@gmail.com",
   documento: "39571863823",
   telefone: "95909716928",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao18@gmail.com",
   documento: "80521991820",
   telefone: "60950613889",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao19@gmail.com",
   documento: "48426498876",
   telefone: "94915875307",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao20@gmail.com",
   documento: "38065457827",
   telefone: "93987770458",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao21@gmail.com",
   documento: "54955335853",
   telefone: "31901589790",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao22@gmail.com",
   documento: "31635783810",
   telefone: "39941590411",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao23@gmail.com",
   documento: "01707565996",
   telefone: "94962278116",
@@ -757,14 +757,14 @@ export const clientes = [
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao24@gmail.com",
   documento: "44409925873",
   telefone: "87903738116",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao25@gmail.com",
   documento: "43952311871",
   telefone: "65998213740",
@@ -778,7 +778,7 @@ export const clientes = [
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao26@gmail.com",
   documento: "34346941885",
   telefone: "63951689506",
@@ -799,21 +799,21 @@ export const clientes = [
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao27@gmail.com",
   documento: "33741324809",
   telefone: "62943231495",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao28@gmail.com",
   documento: "02179087306",
   telefone: "52905591715",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao29@gmail.com",
   documento: "30922255890",
   telefone: "16993352128",
@@ -827,28 +827,28 @@ export const clientes = [
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao30@gmail.com",
   documento: "16297533865",
   telefone: "65975058024",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao31@gmail.com",
   documento: "32103710835",
   telefone: "17941977422",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao32@gmail.com",
   documento: "03815351855",
   telefone: "29993525736",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao33@gmail.com",
   documento: "59994452800",
   telefone: "24979956046",
@@ -862,21 +862,21 @@ export const clientes = [
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao34@gmail.com",
   documento: "11803644818",
   telefone: "15949969229",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao35@gmail.com",
   documento: "08686355889",
   telefone: "61947858991",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao36@gmail.com",
   documento: "08945573860",
   telefone: "19901763277",
@@ -890,14 +890,14 @@ export const clientes = [
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao37@gmail.com",
   documento: "31412122600",
   telefone: "38959301041",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao38@gmail.com",
   documento: "06581014982",
   telefone: "34938042174",
@@ -918,28 +918,28 @@ export const clientes = [
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao39@gmail.com",
   documento: "31456363832",
   telefone: "98930763223",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao40@gmail.com",
   documento: "27433979859",
   telefone: "19955312332",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao41@gmail.com",
   documento: "12899333755",
   telefone: "31987442806",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao42@gmail.com",
   documento: "02926271301",
   telefone: "77990939549",
@@ -953,140 +953,140 @@ export const clientes = [
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao43@gmail.com",
   documento: "44301030972",
   telefone: "38930105369",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao44@gmail.com",
   documento: "62726412815",
   telefone: "41985719470",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao45@gmail.com",
   documento: "28858759842",
   telefone: "87941979205",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao46@gmail.com",
   documento: "81760655449",
   telefone: "97901544443",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao47@gmail.com",
   documento: "11427897808",
   telefone: "49974444725",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao48@gmail.com",
   documento: "28398532807",
   telefone: "72929802099",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao49@gmail.com",
   documento: "31825233845",
   telefone: "68939770935",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao50@gmail.com",
   documento: "46217826810",
   telefone: "75935370245",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao51@gmail.com",
   documento: "11486251439",
   telefone: "36912324000",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao52@gmail.com",
   documento: "81009542834",
   telefone: "59964261231",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao53@gmail.com",
   documento: "45382214816",
   telefone: "11926624753",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao54@gmail.com",
   documento: "10192766813",
   telefone: "76993643788",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao55@gmail.com",
   documento: "00685591867",
   telefone: "15920162005",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao56@gmail.com",
   documento: "03582816877",
   telefone: "17907296649",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao57@gmail.com",
   documento: "97592323591",
   telefone: "42956026602",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao58@gmail.com",
   documento: "09216245816",
   telefone: "12958790450",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao59@gmail.com",
   documento: "03639467809",
   telefone: "43965750864",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao60@gmail.com",
   documento: "03823449877",
   telefone: "46947246086",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao61@gmail.com",
   documento: "03878889186",
   telefone: "32923125726",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao62@gmail.com",
   documento: "04738994859",
   telefone: "15903556367",
@@ -1100,14 +1100,14 @@ export const clientes = [
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao63@gmail.com",
   documento: "29895301855",
   telefone: "48953909706",
  },
 
 {
-  nome: "Liberacao",
+  nome: "Liberação",
   email: "liberacao64@gmail.com",
   documento: "21701547872",
   telefone: "45981962395",

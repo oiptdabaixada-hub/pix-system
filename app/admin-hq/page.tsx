@@ -17,6 +17,10 @@ type Room = {
   pete_percent: number | null;
   partner_recipient_id: string | null;
   partner_percent: number | null;
+  extra_recipient_1_id: string | null;
+  extra_recipient_1_percent: number | null;
+  extra_recipient_2_id: string | null;
+  extra_recipient_2_percent: number | null;
   gateway_account: string | null;
 };
 
@@ -90,7 +94,9 @@ export default function AdminHQPage() {
     return (
       Number(selectedRoom.principal_percent || 0) +
       Number(selectedRoom.pete_percent || 0) +
-      Number(selectedRoom.partner_percent || 0)
+      Number(selectedRoom.partner_percent || 0) +
+      Number(selectedRoom.extra_recipient_1_percent || 0) +
+      Number(selectedRoom.extra_recipient_2_percent || 0)
     );
   }, [selectedRoom]);
 
@@ -100,7 +106,9 @@ export default function AdminHQPage() {
     const total =
       Number(room.principal_percent || 0) +
       Number(room.pete_percent || 0) +
-      Number(room.partner_percent || 0);
+      Number(room.partner_percent || 0) +
+      Number(room.extra_recipient_1_percent || 0) +
+      Number(room.extra_recipient_2_percent || 0);
 
     return total !== 100;
   }).length;
@@ -139,6 +147,12 @@ export default function AdminHQPage() {
 
         partner_recipient_id: selectedRoom.partner_recipient_id,
         partner_percent: selectedRoom.partner_percent,
+
+        extra_recipient_1_id: selectedRoom.extra_recipient_1_id,
+        extra_recipient_1_percent: selectedRoom.extra_recipient_1_percent,
+
+        extra_recipient_2_id: selectedRoom.extra_recipient_2_id,
+        extra_recipient_2_percent: selectedRoom.extra_recipient_2_percent,
 
         updated_at: new Date().toISOString(),
       })
@@ -426,7 +440,7 @@ export default function AdminHQPage() {
               />
 
               <SplitCard
-                title="Petê021"
+                title="LS - Socio"
                 subtitle="Seu ID / sua porcentagem"
                 recipientValue={selectedRoom.pete_recipient_id || ""}
                 percentValue={Number(selectedRoom.pete_percent || 0)}
@@ -439,7 +453,7 @@ export default function AdminHQPage() {
               />
 
               <SplitCard
-                title="Parceiro"
+                title="Direção"
                 subtitle="Parceiro dono dessa sala"
                 recipientValue={selectedRoom.partner_recipient_id || ""}
                 percentValue={Number(selectedRoom.partner_percent || 0)}
@@ -448,6 +462,32 @@ export default function AdminHQPage() {
                 }
                 onPercentChange={(value) =>
                   updateSelectedRoom("partner_percent", value)
+                }
+              />
+
+              <SplitCard
+                title="Recipient extra 1"
+                subtitle="Opcional — deixe vazio se não for usar"
+                recipientValue={selectedRoom.extra_recipient_1_id || ""}
+                percentValue={Number(selectedRoom.extra_recipient_1_percent || 0)}
+                onRecipientChange={(value) =>
+                  updateSelectedRoom("extra_recipient_1_id", value)
+                }
+                onPercentChange={(value) =>
+                  updateSelectedRoom("extra_recipient_1_percent", value)
+                }
+              />
+
+              <SplitCard
+                title="Recipient extra 2"
+                subtitle="Opcional — deixe vazio se não for usar"
+                recipientValue={selectedRoom.extra_recipient_2_id || ""}
+                percentValue={Number(selectedRoom.extra_recipient_2_percent || 0)}
+                onRecipientChange={(value) =>
+                  updateSelectedRoom("extra_recipient_2_id", value)
+                }
+                onPercentChange={(value) =>
+                  updateSelectedRoom("extra_recipient_2_percent", value)
                 }
               />
             </div>
@@ -1182,7 +1222,7 @@ export default function AdminHQPage() {
 
         .splitGrid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(5, 1fr);
           gap: 14px;
         }
 
