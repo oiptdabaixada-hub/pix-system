@@ -54,6 +54,8 @@ export async function POST(req: Request) {
       { name: "partner", recipient_id: room.partner_recipient_id, amount: Number(room.partner_percent || 0) },
       { name: "extra_1", recipient_id: room.extra_recipient_1_id, amount: Number(room.extra_recipient_1_percent || 0) },
       { name: "extra_2", recipient_id: room.extra_recipient_2_id, amount: Number(room.extra_recipient_2_percent || 0) },
+      { name: "extra_3", recipient_id: room.extra_recipient_3_id, amount: Number(room.extra_recipient_3_percent || 0) },
+      { name: "extra_4", recipient_id: room.extra_recipient_4_id, amount: Number(room.extra_recipient_4_percent || 0) },
     ];
 
     const invalidRows = splitRows.filter((item) => {

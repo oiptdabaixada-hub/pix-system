@@ -21,6 +21,10 @@ type Room = {
   extra_recipient_1_percent: number | null;
   extra_recipient_2_id: string | null;
   extra_recipient_2_percent: number | null;
+  extra_recipient_3_id: string | null;
+  extra_recipient_3_percent: number | null;
+  extra_recipient_4_id: string | null;
+  extra_recipient_4_percent: number | null;
   gateway_account: string | null;
 };
 
@@ -96,7 +100,9 @@ export default function AdminHQPage() {
       Number(selectedRoom.pete_percent || 0) +
       Number(selectedRoom.partner_percent || 0) +
       Number(selectedRoom.extra_recipient_1_percent || 0) +
-      Number(selectedRoom.extra_recipient_2_percent || 0)
+      Number(selectedRoom.extra_recipient_2_percent || 0) +
+      Number(selectedRoom.extra_recipient_3_percent || 0) +
+      Number(selectedRoom.extra_recipient_4_percent || 0)
     );
   }, [selectedRoom]);
 
@@ -108,7 +114,9 @@ export default function AdminHQPage() {
       Number(room.pete_percent || 0) +
       Number(room.partner_percent || 0) +
       Number(room.extra_recipient_1_percent || 0) +
-      Number(room.extra_recipient_2_percent || 0);
+      Number(room.extra_recipient_2_percent || 0) +
+      Number(room.extra_recipient_3_percent || 0) +
+      Number(room.extra_recipient_4_percent || 0);
 
     return total !== 100;
   }).length;
@@ -153,6 +161,12 @@ export default function AdminHQPage() {
 
         extra_recipient_2_id: selectedRoom.extra_recipient_2_id,
         extra_recipient_2_percent: selectedRoom.extra_recipient_2_percent,
+
+        extra_recipient_3_id: selectedRoom.extra_recipient_3_id,
+        extra_recipient_3_percent: selectedRoom.extra_recipient_3_percent,
+
+        extra_recipient_4_id: selectedRoom.extra_recipient_4_id,
+        extra_recipient_4_percent: selectedRoom.extra_recipient_4_percent,
 
         updated_at: new Date().toISOString(),
       })
@@ -488,6 +502,32 @@ export default function AdminHQPage() {
                 }
                 onPercentChange={(value) =>
                   updateSelectedRoom("extra_recipient_2_percent", value)
+                }
+              />
+
+              <SplitCard
+                title="Recipient extra 3 (ID 6)"
+                subtitle="Opcional — deixe vazio se não for usar"
+                recipientValue={selectedRoom.extra_recipient_3_id || ""}
+                percentValue={Number(selectedRoom.extra_recipient_3_percent || 0)}
+                onRecipientChange={(value) =>
+                  updateSelectedRoom("extra_recipient_3_id", value)
+                }
+                onPercentChange={(value) =>
+                  updateSelectedRoom("extra_recipient_3_percent", value)
+                }
+              />
+
+              <SplitCard
+                title="Recipient extra 4 (ID 7)"
+                subtitle="Opcional — deixe vazio se não for usar"
+                recipientValue={selectedRoom.extra_recipient_4_id || ""}
+                percentValue={Number(selectedRoom.extra_recipient_4_percent || 0)}
+                onRecipientChange={(value) =>
+                  updateSelectedRoom("extra_recipient_4_id", value)
+                }
+                onPercentChange={(value) =>
+                  updateSelectedRoom("extra_recipient_4_percent", value)
                 }
               />
             </div>
