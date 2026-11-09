@@ -118,7 +118,7 @@ export default function AdminHQPage() {
       Number(room.extra_recipient_3_percent || 0) +
       Number(room.extra_recipient_4_percent || 0);
 
-    return total !== 100;
+    return Math.abs(total - 100) > 0.000001;
   }).length;
 
   function updateSelectedRoom(field: keyof Room, value: string | number) {
@@ -133,7 +133,7 @@ export default function AdminHQPage() {
   async function saveRoomConfig() {
     if (!selectedRoom) return;
 
-    if (totalPercent !== 100) {
+    if (Math.abs(totalPercent - 100) > 0.000001) {
       setSavedMessage("A soma das porcentagens precisa dar 100%.");
       return;
     }
@@ -386,7 +386,7 @@ export default function AdminHQPage() {
 
             <div className="splitWarning">
               <strong>Configuração da sala</strong>
-              <span className={totalPercent === 100 ? "totalOk" : "totalError"}>
+              <span className={Math.abs(totalPercent - 100) < 0.000001 ? "totalOk" : "totalError"}>
                 Total: {totalPercent}%
               </span>
             </div>
@@ -534,7 +534,7 @@ export default function AdminHQPage() {
 
             {savedMessage && (
               <div
-                className={totalPercent === 100 ? "message success" : "message error"}
+                className={Math.abs(totalPercent - 100) < 0.000001 ? "message success" : "message error"}
               >
                 {savedMessage}
               </div>
@@ -1612,6 +1612,10 @@ function SplitCard({
       <label>Porcentagem</label>
       <input
         type="number"
+        min="0"
+        max="100"
+        step="0.01"
+        inputMode="decimal"
         value={percentValue}
         onChange={(e) => onPercentChange(Number(e.target.value))}
       />
